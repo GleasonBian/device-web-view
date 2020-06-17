@@ -16,7 +16,7 @@
         :id="index"
         @click="routerPush(item.path)"
       >
-        <!-- <img slot="icon" src="assets/logo.png"/> -->
+        <i slot="icon" :class="item.icon"></i>
         {{item.name}}
       </mt-tab-item>
     </mt-tabbar>
@@ -29,10 +29,10 @@ export default {
     return {
       selected: true,
       navList: [
-        { name: "消息", path: "/dashboard", icon: "" },
-        { name: "车辆监测", path: "/dashboard", icon: "" },
-        { name: "工作台", path: "/dashboard", icon: "" },
-        { name: "设置", path: "/dashboard", icon: "" }
+        { name: "消息", path: "/dashboard", icon: "i-menu-meg" },
+        { name: "车辆监测", path: "/dashboard", icon: "i-menu-pcm" },
+        { name: "工作台", path: "/dashboard", icon: "i-menu-mac" },
+        { name: "设置", path: "/dashboard", icon: "i-menu-set" }
       ]
     };
   },
