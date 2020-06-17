@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 15:22:32
+ * @LastEditTime: 2020-06-17 16:42:05
 --> 
 <template>
   <div id="app">
@@ -14,7 +14,7 @@
         v-for="(item,index) in navList"
         :key="item.path"
         :id="index"
-        @click="routerPush(item.path)"
+        @click.native="routerPush(item.path)"
       >
         <i slot="icon" class="iconfont" :class="item.icon"></i>
         {{item.name}}
@@ -30,9 +30,9 @@ export default {
       selected: true,
       navList: [
         { name: "消息", path: "/dashboard", icon: "i-menu-meg" },
-        { name: "车辆监测", path: "/1", icon: "i-menu-pcm" },
-        { name: "工作台", path: "/2", icon: "i-menu-mac" },
-        { name: "设置", path: "/3", icon: "i-menu-set" }
+        { name: "车辆监测", path: "/message", icon: "i-menu-pcm" },
+        { name: "工作台", path: "/workbench", icon: "i-menu-mac" },
+        { name: "设置", path: "/setting", icon: "i-menu-set" }
       ]
     };
   },
