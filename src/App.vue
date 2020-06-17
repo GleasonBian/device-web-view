@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 14:45:14
+ * @LastEditTime: 2020-06-17 14:55:31
 --> 
 <template>
   <div id="app">
@@ -46,25 +46,25 @@ export default {
 <style>
 @font-face {
   font-family: "iconfont"; /* project id 1890392 */
-  src: url("//at.alicdn.com/t/font_1890392_ce36tjlumia.eot");
-  src: url("//at.alicdn.com/t/font_1890392_ce36tjlumia.eot?#iefix")
+  src: url("//at.alicdn.com/t/font_1890392_v8lv246ga9.eot");
+  src: url("//at.alicdn.com/t/font_1890392_v8lv246ga9.eot?#iefix")
       format("embedded-opentype"),
-    url("//at.alicdn.com/t/font_1890392_ce36tjlumia.woff2") format("woff2"),
-    url("//at.alicdn.com/t/font_1890392_ce36tjlumia.woff") format("woff"),
-    url("//at.alicdn.com/t/font_1890392_ce36tjlumia.ttf") format("truetype"),
-    url("//at.alicdn.com/t/font_1890392_ce36tjlumia.svg#iconfont") format("svg");
+    url("//at.alicdn.com/t/font_1890392_v8lv246ga9.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_1890392_v8lv246ga9.woff") format("woff"),
+    url("//at.alicdn.com/t/font_1890392_v8lv246ga9.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_1890392_v8lv246ga9.svg#iconfont") format("svg");
 }
 /* 菜单栏 图标 */
-.i-menu-one:before {
-  content: "\e611;";
+.i-menu-meg:before {
+  content: "\e758;";
 }
-.i-menu-two:before {
-  content: "\e69d;";
+.i-menu-pcm:before {
+  content: "\e7d0;";
 }
-.i-menu-three:before {
-  content: "\e63c;";
+.i-menu-mac:before {
+  content: "\e75d;";
 }
-.i-menu-four:before {
-  content: "\ea12;";
+.i-menu-set:before {
+  content: "\e76c;";
 }
 </style>
