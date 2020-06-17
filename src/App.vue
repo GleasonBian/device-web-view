@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 14:55:31
+ * @LastEditTime: 2020-06-17 15:14:34
 --> 
 <template>
   <div id="app">
@@ -16,7 +16,7 @@
         :id="index"
         @click="routerPush(item.path)"
       >
-        <i slot="icon" :class="item.icon"></i>
+        <i slot="icon" class="iconfont" :class="item.icon"></i>
         {{item.name}}
       </mt-tab-item>
     </mt-tabbar>
@@ -54,17 +54,26 @@ export default {
     url("//at.alicdn.com/t/font_1890392_v8lv246ga9.ttf") format("truetype"),
     url("//at.alicdn.com/t/font_1890392_v8lv246ga9.svg#iconfont") format("svg");
 }
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  color: #cccccc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  margin-right: 8px;
+}
 /* 菜单栏 图标 */
 .i-menu-meg:before {
-  content: "\e758;";
+  content: "\e758";
 }
 .i-menu-pcm:before {
-  content: "\e7d0;";
+  content: "\e7d0";
 }
 .i-menu-mac:before {
-  content: "\e75d;";
+  content: "\e75d";
 }
 .i-menu-set:before {
-  content: "\e76c;";
+  content: "\e76c";
 }
 </style>
