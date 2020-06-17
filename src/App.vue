@@ -8,14 +8,41 @@
 --> 
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
+    <mt-tabbar v-model="selected">
+      <mt-tab-item
+        v-for="(item,index) in navList"
+        :key="item.path"
+        :id="index"
+        @click="routerPush(item.path)"
+      >
+        <!-- <img slot="icon" src="assets/logo.png"/> -->
+        {{item.name}}
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
-
+<script>
+export default {
+  name: "Home",
+  data() {
+    return {
+      selected: true,
+      navList: [
+        { name: "消息", path: "/dashboard", icon: "" },
+        { name: "车辆监测", path: "/dashboard", icon: "" },
+        { name: "工作台", path: "/dashboard", icon: "" },
+        { name: "设置", path: "/dashboard", icon: "" }
+      ]
+    };
+  },
+  methods: {
+    routerPush(link) {
+      this.$router.push({ path: link });
+    }
+  }
+};
+</script>
 <style>
 @font-face {
   font-family: "iconfont"; /* project id 1890392 */
