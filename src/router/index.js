@@ -1,6 +1,13 @@
+/*
+ * @Description: 
+ * @Author: gleason
+ * @Github: https://github.com/GleasonBian
+ * @Date: 2020-06-17 15:10:22
+ * @LastEditors: OBKoro1
+ * @LastEditTime: 2020-06-17 15:18:08
+ */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Dashboard from "../views/dashboard.vue";
 
 Vue.use(VueRouter);
 
@@ -8,7 +15,7 @@ const routes = [
   {
     path: "/",
     name: "Dashboard",
-    component: Dashboard,
+    component: resolve => require(["@/views/dashboard.vue"], resolve),
   },
 ];
 

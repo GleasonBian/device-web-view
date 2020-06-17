@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 15:14:34
+ * @LastEditTime: 2020-06-17 15:22:32
 --> 
 <template>
   <div id="app">
@@ -30,9 +30,9 @@ export default {
       selected: true,
       navList: [
         { name: "消息", path: "/dashboard", icon: "i-menu-meg" },
-        { name: "车辆监测", path: "/dashboard", icon: "i-menu-pcm" },
-        { name: "工作台", path: "/dashboard", icon: "i-menu-mac" },
-        { name: "设置", path: "/dashboard", icon: "i-menu-set" }
+        { name: "车辆监测", path: "/1", icon: "i-menu-pcm" },
+        { name: "工作台", path: "/2", icon: "i-menu-mac" },
+        { name: "设置", path: "/3", icon: "i-menu-set" }
       ]
     };
   },
@@ -57,11 +57,10 @@ export default {
 .iconfont {
   font-family: "iconfont" !important;
   font-style: normal;
-  color: #cccccc;
+  color: #888888;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 18px;
-  margin-right: 8px;
+  font-size: 28px;
 }
 /* 菜单栏 图标 */
 .i-menu-meg:before {
