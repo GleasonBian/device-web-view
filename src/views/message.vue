@@ -4,10 +4,10 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 16:00:25
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 16:44:31
+ * @LastEditTime: 2020-06-18 10:30:15
 --> 
 <template>
-  <div></div>
+  <div>这是message</div>
 </template>
 
 <script>

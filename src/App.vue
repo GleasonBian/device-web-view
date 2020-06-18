@@ -4,11 +4,11 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-17 16:42:05
+ * @LastEditTime: 2020-06-18 10:23:25
 --> 
 <template>
   <div id="app">
-    <router-view />
+    <router-view id="containter"></router-view>
     <mt-tabbar v-model="selected">
       <mt-tab-item
         v-for="(item,index) in navList"
@@ -36,6 +36,7 @@ export default {
       ]
     };
   },
+  mounted() {},
   methods: {
     routerPush(link) {
       this.$router.push({ path: link });
@@ -43,7 +44,8 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="less">
+@import "./style/common";
 @font-face {
   font-family: "iconfont"; /* project id 1890392 */
   src: url("//at.alicdn.com/t/font_1890392_v8lv246ga9.eot");
@@ -74,5 +76,15 @@ export default {
 }
 .i-menu-set:before {
   content: "\e76c";
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+.router_view {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 </style>
