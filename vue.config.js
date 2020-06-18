@@ -39,7 +39,7 @@ module.exports = {
     // 别名配置 可进行 链式操作
     config.resolve.alias
       .set("@", resolve("src"))
-      .set("views", resolve("src/views"))
+      .set("#", resolve("src/components"))
       .set("$img", resolve("src/assets"));
   },
 
