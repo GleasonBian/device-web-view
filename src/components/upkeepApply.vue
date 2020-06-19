@@ -1,18 +1,18 @@
 <!--
- * @Description: 维修计划
+ * @Description: 保养申请
  * @Author: gleason
  * @Github: https://github.com/GleasonBian
- * @Date: 2020-06-18 15:34:35
+ * @Date: 2020-06-19 14:24:59
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 14:29:57
--->
+ * @LastEditTime: 2020-06-19 14:28:43
+--> 
 <template>
-  <div>维修计划</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: "repair",
+  name: "upkeepApply",
   data() {
     return {};
   },
@@ -29,5 +29,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
-
+<style scoped>
+</style>

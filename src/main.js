@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 09:45:47
+ * @LastEditTime: 2020-06-19 13:35:29
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -26,7 +26,6 @@ Vue.component("gt-search", gtSearch);
  */
 axios.interceptors.request.use(
   function (config) {
-    console.log(Indicator)
     // 在发送请求之前做些什么
     Indicator.open({
       text: "加载中...",

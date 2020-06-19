@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 13:38:39
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 13:21:42
+ * @LastEditTime: 2020-06-19 14:22:56
 --> 
 <template>
   <div>
@@ -35,6 +35,7 @@
         {{item.name}}
       </mt-tab-item>
     </mt-tabbar>
+    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
   </div>
 </template>
 
@@ -59,7 +60,10 @@ export default {
         { name: "车辆监测", path: "dashboard", icon: "i-menu-pcm" },
         { name: "工作台", path: "workbench", icon: "i-menu-mac" },
         { name: "设置", path: "setting", icon: "i-menu-set" }
-      ]
+      ],
+      actions: [],
+      sheetVisible: false,
+      more: false
     };
   },
 

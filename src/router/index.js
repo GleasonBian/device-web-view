@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 15:10:22
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 13:33:26
+ * @LastEditTime: 2020-06-19 13:37:33
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -129,8 +129,8 @@ const routes = [
         name: "repair",
         component: (resolve) => require(["#/repair.vue"], resolve),
         meta: {
-          title: "保养计划",
-          crumbs: ["油耗"],
+          title: "维修计划",
+          crumbs: ["维修计划"],
         },
       },
     ],

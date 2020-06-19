@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 15:32:28
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 13:20:33
+ * @LastEditTime: 2020-06-19 14:23:26
 --> 
 <template>
   <div>
@@ -67,11 +67,18 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    console.log(this.$parent.more);
+    this.$parent.more = true;
+    this;
+  },
 
   mounted() {},
 
-  components: {}
+  components: {},
+  destroyed() {
+    this.$parent.more = false;
+  }
 };
 </script>
 
