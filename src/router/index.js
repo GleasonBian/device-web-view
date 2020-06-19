@@ -91,7 +91,7 @@ const routes = [
       {
         path: "/alarm",
         name: "alarm",
-        component: resolve => require(["#/alarm.vue"], resolve),
+        component: (resolve) => require(["#/alarm.vue"], resolve),
         meta: {
           title: "告警",
           crumbs: ["油耗"],
@@ -100,7 +100,16 @@ const routes = [
       {
         path: "/assign",
         name: "assign",
-        component: (resolve) => require(["@/components/assign.vue"], resolve),
+        component: (resolve) => require(["#/assign"], resolve),
+        meta: {
+          title: "调度计划",
+          crumbs: ["油耗"],
+        },
+      },
+      {
+        path: "/assignPlan",
+        name: "assignPlan",
+        component: (resolve) => require(["#/assignPlan"], resolve),
         meta: {
           title: "调度计划",
           crumbs: ["油耗"],
