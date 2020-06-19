@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 09:56:54
+ * @LastEditTime: 2020-06-19 11:18:51
 --> 
 <template>
   <div id="app">
@@ -23,13 +23,13 @@ export default {
 @import "./style/common";
 @font-face {
   font-family: "iconfont"; /* project id 1890392 */
-  src: url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.eot");
-  src: url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.eot?#iefix")
+  src: url("//at.alicdn.com/t/font_1890392_rstv6mrjja.eot");
+  src: url("//at.alicdn.com/t/font_1890392_rstv6mrjja.eot?#iefix")
       format("embedded-opentype"),
-    url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.woff2") format("woff2"),
-    url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.woff") format("woff"),
-    url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.ttf") format("truetype"),
-    url("//at.alicdn.com/t/font_1890392_xf7h1jn2t1n.svg#iconfont") format("svg");
+    url("//at.alicdn.com/t/font_1890392_rstv6mrjja.woff2") format("woff2"),
+    url("//at.alicdn.com/t/font_1890392_rstv6mrjja.woff") format("woff"),
+    url("//at.alicdn.com/t/font_1890392_rstv6mrjja.ttf") format("truetype"),
+    url("//at.alicdn.com/t/font_1890392_rstv6mrjja.svg#iconfont") format("svg");
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -60,6 +60,9 @@ export default {
 }
 .i-search:before {
   content: "\e61d";
+}
+.i-entrance:before {
+  content: "\e600";
 }
 #app {
   width: 100vw;

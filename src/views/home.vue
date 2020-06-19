@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 13:38:39
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-18 19:31:18
+ * @LastEditTime: 2020-06-19 13:21:42
 --> 
 <template>
   <div>
@@ -13,6 +13,7 @@
       <router-link to slot="left">
         <mt-button icon="back" @click="$router.back(-1);">返回</mt-button>
       </router-link>
+      <mt-button icon="more" slot="right"></mt-button>
       <!-- <mt-button icon="more" slot="right"></mt-button> -->
     </mt-header>
 
