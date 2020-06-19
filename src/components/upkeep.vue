@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 15:32:28
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 14:36:51
+ * @LastEditTime: 2020-06-19 19:12:44
 --> 
 <template>
   <div>
@@ -20,7 +20,7 @@
       <!-- tab-container -->
       <mt-tab-container v-model="selected" style="margin-top:10px">
         <mt-tab-container-item id="1">
-          <div class="cell_container">
+          <div class="cell_container" @click="$router.push({name:'upkeepApply'})">
             <div class="cell_title">
               <span style="font-size:16px;">车辆名称 - 车牌号</span>
               <span>状态: 申请中</span>
