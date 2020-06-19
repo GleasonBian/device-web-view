@@ -57,7 +57,7 @@ export default {
           title: "作业管理",
           icon: "i-menu-pcm",
           list: [
-            { to: "dispatch", name: "调度计划", icon: "i-menu-pcm" },
+            { to: "assign", name: "调度计划", icon: "i-menu-pcm" },
             { to: "fuelUP", name: "加油计划", icon: "i-menu-pcm" },
             { to: "upkeep", name: "保养计划", icon: "i-menu-pcm" },
             { to: "repair", name: "维修计划", icon: "i-menu-pcm" }

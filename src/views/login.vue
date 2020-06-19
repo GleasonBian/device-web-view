@@ -23,7 +23,7 @@
       <div class="password">
         <div class="login_input">
           <i class="iconfont i-user"></i>
-          <input class="input_box" v-model="password" />
+          <input class="input_box" type="password" v-model="password" />
         </div>
       </div>
       <div class="info">{{info}}</div>
