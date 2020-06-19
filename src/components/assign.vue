@@ -22,26 +22,25 @@
         @click="goDetails(index)"
         class="wait-list-items"
       >
-        <router-link to="{name:assTask}" class="list-item" tag="div">
+        <router-link to="{name:assignTasks}" class="list-item" tag="div">
           <div class="title">
-            {{item.equipname+' ( '+item.plat_no+' ) '}}
+            {{ item.equipname + " ( " + item.plat_no + " ) " }}
             <span class="status">申请中</span>
           </div>
           <div class="content">
-            <div>调令编号 : {{item.code}}</div>
-            <div>项目部名称 : {{item.project_name}}</div>
-            <div>开始时间 : {{item.factstart}}</div>
-            <div>结束时间 : {{item.factstop}}</div>
-            <div>工作任务数 : {{item.tasknum}}</div>
-            <div>当值司机 : {{item.driver_name}}</div>
+            <div>调令编号 : {{ item.code }}</div>
+            <div>项目部名称 : {{ item.project_name }}</div>
+            <div>开始时间 : {{ item.factstart }}</div>
+            <div>结束时间 : {{ item.factstop }}</div>
+            <div>工作任务数 : {{ item.tasknum }}</div>
+            <div>当值司机 : {{ item.driver_name }}</div>
           </div>
           <i class="enter iconfont i-entrance"></i>
-          <div class></div>
         </router-link>
       </li>
       <!--底部判断是加载图标还是提示“全部加载”-->
       <li class="wait-list-loading">
-        <span v-show="moreLoading&&!allLoaded">加载中...</span>
+        <span v-show="moreLoading && !allLoaded">加载中...</span>
         <span v-show="allLoaded">已全部加载</span>
       </li>
     </ul>
@@ -58,7 +57,7 @@ export default {
       moreLoading: false,
       allLoaded: false,
       pageno: 1, // 代表取第0条后的数据-从0开始
-      pagesize: 10
+      pagesize: 10,
     };
   },
 
@@ -73,11 +72,11 @@ export default {
       this.moreLoading = true;
       let param = {
         pageno: this.pageno,
-        pagesize: this.pagesize
+        pagesize: this.pagesize,
       };
       const res = await assigndeSelect({ param: param });
       if (res.status === 200) {
-        this.dataList = res.data.list;
+        this.dataList.push(...res.data.list);
         this.pagesize = res.data.pagesize;
         if (res.data.pageno * this.pagesize < res.data.total) {
           this.pageno++;
@@ -87,23 +86,17 @@ export default {
           this.moreLoading = true;
         }
       }
-    }
+    },
   },
 
-  created() {
-    this.$parent.more = true;
-    this.$parent.recept("assignPlan");
-  },
+  created() {},
 
   mounted() {
     this.getData();
   },
-  destroyed() {
-    this.$parent.more = false;
-  },
-  components: {}
+  destroyed() {},
+  components: {},
 };
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>

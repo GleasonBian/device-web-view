@@ -5,7 +5,7 @@
  * @Date: 2020-06-18 15:21:21
  * @LastEditors: OBKoro1
  * @LastEditTime: 2020-06-18 15:55:59
---> 
+-->
 <template>
   <div style="height:1000px">油耗</div>
 </template>
@@ -25,7 +25,7 @@ export default {
 
   mounted() {},
 
-  components: {}
+  components: {},
 };
 </script>
 

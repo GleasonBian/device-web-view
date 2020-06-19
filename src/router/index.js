@@ -103,24 +103,33 @@ const routes = [
         component: (resolve) => require(["#/assign"], resolve),
         meta: {
           title: "调度计划",
-          crumbs: ["油耗"],
+          crumbs: ["调令"],
         },
       },
       {
-        path: "/assignPlan",
-        name: "assignPlan",
-        component: (resolve) => require(["#/assignPlan"], resolve),
+        path: "/assignTasks",
+        name: "assignTasks",
+        component: (resolve) => require(["#/assignTasks"], resolve),
         meta: {
-          title: "调度计划",
-          crumbs: ["油耗"],
+          title: "调度任务",
+          crumbs: ["调令"],
         },
       },
       {
         path: "/fuelUP",
         name: "fuelUP",
-        component: (resolve) => require(["#/fuelUP.vue"], resolve),
+        component: (resolve) => require(["#/fuelUP"], resolve),
         meta: {
           title: "加油计划",
+          crumbs: ["油耗"],
+        },
+      },
+      {
+        path: "/oilApply",
+        name: "oilApply",
+        component: (resolve) => require(["#/oilApply"], resolve),
+        meta: {
+          title: "加油申请",
           crumbs: ["油耗"],
         },
       },
