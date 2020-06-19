@@ -100,7 +100,7 @@ const routes = [
       {
         path: "/assign",
         name: "assign",
-        component: (resolve) => require(["@/views/assign.vue"], resolve),
+        component: (resolve) => require(["@/components/assign.vue"], resolve),
         meta: {
           title: "调度计划",
           crumbs: ["油耗"],

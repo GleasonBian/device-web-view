@@ -23,14 +23,11 @@
         class="wait-list-items"
       >
         <div class="list-item item-worknum">
-          <mt-cell title="标题文字" is-link>
-            <div>123</div>
-          </mt-cell>
+          <div class="title">123</div>
         </div>
       </li>
       <!--底部判断是加载图标还是提示“全部加载”-->
       <li class="wait-list-loading">
-        <!-- <mt-spinner style="margin:0 auto;" type="snake" color="#00ccff" :size="30" v-show="moreLoading&&!allLoaded"></mt-spinner> -->
         <span v-show="moreLoading&&!allLoaded">加载中...</span>
         <span v-show="allLoaded">已全部加载</span>
       </li>
@@ -41,7 +38,7 @@
 <script>
 import { assigndeSelect } from "@/getData";
 export default {
-  name: "setting",
+  name: "assign",
   data() {
     return {
       dataList: [],
@@ -70,7 +67,6 @@ export default {
         this.dataList = res.data.list;
         this.pagesize = res.data.pagesize;
         if (res.data.pageno * this.pagesize < res.data.total) {
-          debugger;
           this.pageno++;
           this.moreLoading = false;
         } else {
@@ -81,14 +77,26 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    this.$parent.more = true;
+    this.$parent.recept("");
+  },
 
   mounted() {
     this.getData();
   },
-
+  destroyed() {
+    this.$parent.more = false;
+  },
   components: {}
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.wait-list-items {
+  background: #fff;
+}
+.wait-list-loading {
+  text-align: center;
+}
+</style>

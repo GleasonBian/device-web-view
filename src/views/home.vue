@@ -13,9 +13,10 @@
       <router-link to slot="left">
         <mt-button icon="back" @click="$router.back(-1);">返回</mt-button>
       </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
+      <mt-button v-show="more" icon="more" slot="right" @click="openAction"></mt-button>
       <!-- <mt-button icon="more" slot="right"></mt-button> -->
     </mt-header>
+    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
 
     <!-- 路由出口 -->
     <div id="containter">
@@ -42,6 +43,15 @@ export default {
   name: "Home",
   data() {
     return {
+      sheetVisible: false,
+      path: "",
+      more: false,
+      actions: [
+        {
+          name: "新增",
+          method: this.add()
+        }
+      ],
       selected: true,
       header: true,
       navList: [
@@ -60,6 +70,15 @@ export default {
     window.addEventListener("scroll", this.scrollHandle, true);
   },
   methods: {
+    openAction() {
+      this.sheetVisible = true;
+    },
+    add() {
+      this.$router.push({ name: this.path });
+    },
+    recept(path) {
+      this.path = path;
+    },
     routerPush(link) {
       this.$router.push({ name: link });
     },
@@ -85,7 +104,6 @@ export default {
     $route: "setHeight"
   },
   created() {},
-
   components: {}
 };
 </script>
