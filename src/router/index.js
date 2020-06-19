@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 15:10:22
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-18 15:34:26
+ * @LastEditTime: 2020-06-19 13:33:26
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -82,7 +82,7 @@ const routes = [
       {
         path: "/oilWwear",
         name: "oilWwear",
-        // component: (resolve) => require(["#/oilWwear.vue"], resolve),
+        component: (resolve) => require(["#/oilWwear.vue"], resolve),
         meta: {
           title: "油耗",
           crumbs: ["油耗"],
@@ -91,7 +91,7 @@ const routes = [
       {
         path: "/alarm",
         name: "alarm",
-        // component: resolve => require(["#/alarm.vue"], resolve),
+        component: resolve => require(["#/alarm.vue"], resolve),
         meta: {
           title: "告警",
           crumbs: ["油耗"],
@@ -109,7 +109,7 @@ const routes = [
       {
         path: "/fuelUP",
         name: "fuelUP",
-        // component: (resolve) => require(["#/fuelUP.vue"], resolve),
+        component: (resolve) => require(["#/fuelUP.vue"], resolve),
         meta: {
           title: "加油计划",
           crumbs: ["油耗"],
@@ -118,7 +118,7 @@ const routes = [
       {
         path: "/upkeep",
         name: "upkeep",
-        // component: (resolve) => require(["#/upkeep.vue"], resolve),
+        component: (resolve) => require(["#/upkeep.vue"], resolve),
         meta: {
           title: "保养计划",
           crumbs: ["油耗"],
@@ -127,7 +127,7 @@ const routes = [
       {
         path: "/repair",
         name: "repair",
-        // component: (resolve) => require(["#/repair.vue"], resolve),
+        component: (resolve) => require(["#/repair.vue"], resolve),
         meta: {
           title: "保养计划",
           crumbs: ["油耗"],
