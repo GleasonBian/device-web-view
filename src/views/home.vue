@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 13:38:39
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 14:22:56
+ * @LastEditTime: 2020-06-19 14:39:36
 --> 
 <template>
   <div>
@@ -50,7 +50,7 @@ export default {
       actions: [
         {
           name: "新增",
-          method: this.add()
+          method: this.add
         }
       ],
       selected: true,
@@ -61,9 +61,7 @@ export default {
         { name: "工作台", path: "workbench", icon: "i-menu-mac" },
         { name: "设置", path: "setting", icon: "i-menu-set" }
       ],
-      actions: [],
-      sheetVisible: false,
-      more: false
+      sheetVisible: false
     };
   },
 

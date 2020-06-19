@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 13:35:29
+ * @LastEditTime: 2020-06-19 15:50:35
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -13,12 +13,17 @@ import axios from "axios";
 // 引入 mint UI
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import Vant from 'vant';
+import 'vant/lib/index.css';
+
+
 Vue.config.productionTip = false
 import { Indicator } from 'mint-ui'
 import gtSearch from "@/common/gt-search";
 
 // 使用 mint 
 Vue.use(MintUI)
+Vue.use(Vant);
 Vue.component("gt-search", gtSearch);
 
 /*

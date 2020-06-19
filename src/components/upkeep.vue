@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 15:32:28
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 14:23:26
+ * @LastEditTime: 2020-06-19 14:36:51
 --> 
 <template>
   <div>
@@ -70,7 +70,7 @@ export default {
   created() {
     console.log(this.$parent.more);
     this.$parent.more = true;
-    this;
+    this.$parent.recept("upkeepApply");
   },
 
   mounted() {},
