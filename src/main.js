@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 10:49:05
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-18 19:30:21
+ * @LastEditTime: 2020-06-19 09:45:47
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -15,11 +15,11 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.config.productionTip = false
 import { Indicator } from 'mint-ui'
-
+import gtSearch from "@/common/gt-search";
 
 // 使用 mint 
 Vue.use(MintUI)
-
+Vue.component("gt-search", gtSearch);
 
 /*
  ** 添加请求拦截器
