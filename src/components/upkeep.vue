@@ -1,128 +1,165 @@
 <!--
- * @Description: 车辆保养计划
+ * @Description: 
  * @Author: gleason
  * @Github: https://github.com/GleasonBian
- * @Date: 2020-06-18 15:32:28
+ * @Date: 2020-06-18 15:21:21
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 19:12:44
---> 
+ * @LastEditTime: 2020-06-22 15:46:18
+-->
 <template>
   <div>
-    <gt-search :data="{key:'aaa',default: 0}" placeholder="请搜索" @handle="getdata"></gt-search>
-    <div class>
-      <mt-navbar v-model="selected">
-        <mt-tab-item id="1">全部</mt-tab-item>
-        <mt-tab-item id="2">项目部</mt-tab-item>
-        <mt-tab-item id="3">车辆名称</mt-tab-item>
-        <mt-tab-item id="4">状态</mt-tab-item>
-      </mt-navbar>
-
-      <!-- tab-container -->
-      <mt-tab-container v-model="selected" style="margin-top:10px">
-        <mt-tab-container-item id="1">
-          <div class="cell_container" @click="$router.push({name:'upkeepApply'})">
-            <div class="cell_title">
-              <span style="font-size:16px;">车辆名称 - 车牌号</span>
-              <span>状态: 申请中</span>
-            </div>
-            <div class="cell_body">
-              <div class="cell_body_item">
-                <div>保养编号:{{23423423}}</div>
-                <div>项目部:{{23423423}}</div>
-                <div>保养部门:{{23423423}}</div>
-                <div>保养人:{{23423423}}</div>
-                <div>保养时间:{{23423423}}</div>
-              </div>
-              <div>
-                <i class="iconfont i-entrance"></i>
-              </div>
-            </div>
+    <van-dropdown-menu>
+      <van-dropdown-item title="全部" :options="all" @change="getData('new')" />
+      <van-dropdown-item
+        title="项目部"
+        v-model="form.proj_deptid"
+        :options="projDepts"
+        @change="getData('new')"
+      />
+      <van-dropdown-item
+        title="车辆名称"
+        v-model="form.equip"
+        :options="equipList"
+        @change="getData('new')"
+      />
+      <van-dropdown-item
+        title="状态"
+        v-model="form.equip"
+        :options="stateList"
+        @change="getData('new')"
+      />
+    </van-dropdown-menu>
+    <ul
+      class="wait-list"
+      v-infinite-scroll="getData"
+      infinite-scroll-disabled="moreLoading"
+      infinite-scroll-distance="0"
+      infinite-scroll-immediate-check="false"
+    >
+      <!--li数据遍历循环部分-->
+      <li v-for="(item, index) in dataList" :key="index" class="wait-list-items">
+        <router-link :to="{name:'upkeepTask',query:{id:'23423423'}}" class="list-item" tag="div">
+          <div class="title">
+            {{ item.equipname + " ( " + item.plant_no + " ) " }}
+            <span
+              class="status"
+            >{{ item.apply_state }}</span>
           </div>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="2">
-          <mt-cell v-for="n in 4" :title="'测试 ' + n" />
-        </mt-tab-container-item>
-        <mt-tab-container-item id="3">
-          <mt-cell v-for="n in 6" :title="'选项 ' + n" />
-        </mt-tab-container-item>
-      </mt-tab-container>
-    </div>
+          <div class="content">
+            <div>加油申请编号 : {{ item.code }}</div>
+            <div>项目部名称 : {{ item.project_name }}</div>
+            <div>计划维修时间 : {{ item.planstart }}</div>
+            <div>申请部门 : {{ item.deptnamesched }}</div>
+          </div>
+          <i class="enter iconfont i-entrance"></i>
+        </router-link>
+      </li>
+      <!--底部判断是加载图标还是提示“全部加载”-->
+      <li class="wait-list-loading">
+        <span v-show="moreLoading && !allLoaded">加载中...</span>
+        <span v-show="allLoaded">已全部加载</span>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import { fixList, equiSelect, corpRank, maintains } from "@/getData";
 export default {
   name: "upkeep",
   data() {
     return {
-      selected: false
+      form: {
+        proj_deptid: "",
+        equip: "",
+        state: ""
+      },
+      all: [{ text: "全部", value: "" }],
+      projDepts: [{ text: "全部", value: "1" }],
+      equipList: [{ text: "全部", value: "" }],
+      stateList: [
+        { text: "全部", value: "1" },
+        { text: "已完成", value: "已完成" },
+        { text: "未完成", value: "未完成" }
+      ],
+      dataList: [],
+      moreLoading: false,
+      allLoaded: false,
+      pageno: 1, // 代表取第0条后的数据-从0开始
+      pagesize: 10
     };
   },
 
   computed: {},
 
   methods: {
-    getdata(val) {
-      console.log(val);
+    async getData(getNew) {
+      if (getNew) {
+        this.pagesize = 10;
+        this.pageno = 1;
+        this.dataList = [];
+      } else {
+        if (this.allLoaded) {
+          this.moreLoading = true;
+          return;
+        }
+      }
+
+      this.moreLoading = true;
+      let param = this.form;
+      param.pageno = this.pageno;
+      param.pagesize = this.pagesize;
+
+      const res = await maintains({ param: param });
+      if (res.status === 200) {
+        this.dataList.push(...res.data.list);
+        this.pagesize = res.data.pagesize;
+        if (res.data.pageno * this.pagesize < res.data.total) {
+          this.pageno++;
+          this.moreLoading = false;
+        } else {
+          this.allLoaded = true;
+          this.moreLoading = true;
+        }
+      }
+    },
+    async getEqList() {
+      const res = await equiSelect();
+      if (res.status === 200) {
+        res.data.map(item => {
+          item.text = item.name + " - " + item.plateno;
+          item.value = item.guid;
+        });
+        this.equipList.push(...res.data);
+      }
+    },
+    async getProjList() {
+      const res = await corpRank({ id: 3 });
+      if (res.status === 200) {
+        res.data.map(item => {
+          item.text = item.name;
+          item.value = item.guid;
+        });
+        this.projDepts.push(...res.data);
+      }
     }
   },
 
   created() {
-    console.log(this.$parent.more);
     this.$parent.more = true;
-    this.$parent.recept("upkeepApply");
+    this.$parent.recept("oilApply");
   },
 
-  mounted() {},
-
-  components: {},
+  mounted() {
+    this.getData();
+    this.getEqList();
+    this.getProjList();
+  },
   destroyed() {
     this.$parent.more = false;
-  }
+  },
+  components: {}
 };
 </script>
 
-<style scoped>
-.cell_container {
-  margin: 4px 6px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-.cell_title {
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  font-size: 18px;
-}
-.cell_title span:nth-child(2) {
-  font-family: "PingFangSC-Regular", "PingFang SC";
-  font-weight: 400;
-  font-style: normal;
-  font-size: 12px;
-  color: #999999;
-}
-.cell_body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  font-size: 14px;
-  padding: 5px 10px;
-}
-.cell_body_item > div {
-  color: #999999;
-  padding: 2px 0px;
-}
-.cell_title,
-.cell_body {
-  width: 100%;
-  box-sizing: border-box;
-}
-</style>
+<style scoped></style>

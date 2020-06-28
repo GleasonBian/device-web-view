@@ -4,10 +4,31 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-18 15:21:21
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-18 15:30:56
+ * @LastEditTime: 2020-06-22 17:41:42
 -->
 <template>
   <div>
+    <van-dropdown-menu>
+      <van-dropdown-item title="全部" :options="all" @change="getData('new')" />
+      <van-dropdown-item
+        title="加油申请单号"
+        v-model="form.proj_deptid"
+        :options="projDepts"
+        @change="getData('new')"
+      />
+      <van-dropdown-item
+        title="车辆名称"
+        v-model="form.equip"
+        :options="equipList"
+        @change="getData('new')"
+      />
+      <van-dropdown-item
+        title="状态"
+        v-model="form.equip"
+        :options="stateList"
+        @change="getData('new')"
+      />
+    </van-dropdown-menu>
     <ul
       class="wait-list"
       v-infinite-scroll="getData"
@@ -25,7 +46,9 @@
         <router-link to="{name:assignTasks}" class="list-item" tag="div">
           <div class="title">
             {{ item.equipname + " ( " + item.plat_no + " ) " }}
-            <span class="status">{{ item.apply_state }}</span>
+            <span
+              class="status"
+            >{{ item.apply_state }}</span>
           </div>
           <div class="content">
             <div>加油申请编号 : {{ item.code }}</div>
@@ -57,7 +80,7 @@ export default {
       moreLoading: false,
       allLoaded: false,
       pageno: 1, // 代表取第0条后的数据-从0开始
-      pagesize: 10,
+      pagesize: 10
     };
   },
 
@@ -72,7 +95,7 @@ export default {
       this.moreLoading = true;
       let param = {
         pageno: this.pageno,
-        pagesize: this.pagesize,
+        pagesize: this.pagesize
       };
       const res = await refuelList({ param: param });
       if (res.status === 200) {
@@ -86,7 +109,7 @@ export default {
           this.moreLoading = true;
         }
       }
-    },
+    }
   },
 
   created() {
@@ -100,7 +123,7 @@ export default {
   destroyed() {
     this.$parent.more = false;
   },
-  components: {},
+  components: {}
 };
 </script>
 

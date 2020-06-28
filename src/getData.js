@@ -394,6 +394,11 @@ export const repairUpdate = data => fetch("repairupdate", data, "put");
  */
 export const repairDelete = data => fetch("repairdel", data, "delete");
 
+/**
+ * 作业管理 / 车辆保养 / 移动端 / 任务
+ */
+export const maintains = data => fetch("maintains", data, "get");
+
 
 /**
  * 公司分页查询

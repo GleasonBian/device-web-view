@@ -4,7 +4,7 @@
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-17 15:10:22
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 14:36:39
+ * @LastEditTime: 2020-06-22 10:50:55
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -143,11 +143,11 @@ const routes = [
         },
       },
       {
-        path: "/upkeepApply",
-        name: "upkeepApply",
-        component: (resolve) => require(["#/upkeepApply.vue"], resolve),
+        path: "/upkeepTask",
+        name: "upkeepTask",
+        component: (resolve) => require(["#/upkeepTask.vue"], resolve),
         meta: {
-          title: "保养申请",
+          title: "保养任务",
           crumbs: ["油耗"],
         },
       },

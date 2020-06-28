@@ -1,16 +1,35 @@
 <!--
- * @Description: 保养申请
+ * @Description: 保养申请 暂时废弃
  * @Author: gleason
  * @Github: https://github.com/GleasonBian
  * @Date: 2020-06-19 14:24:59
  * @LastEditors: OBKoro1
- * @LastEditTime: 2020-06-19 19:14:32
+ * @LastEditTime: 2020-06-22 10:48:49
 --> 
 <template>
   <div style="padding-top:10px">
     <van-form @submit="onSubmit">
       <!-- 保养单号 -->
       <van-field label="保养单号" name="code" placeholder="此项不需填写" v-model="form.code" readonly />
+
+      <!-- 保养状态 -->
+      <van-field
+        readonly
+        clickable
+        name="state"
+        :value="form.state"
+        label="保养类型"
+        placeholder="选择保养类型"
+        @click="upkeepStatusPicker = true"
+      />
+      <van-popup v-model="upkeepStatusPicker" position="bottom">
+        <van-picker
+          show-toolbar
+          :columns="upkeepStatus"
+          @confirm="upkeepStatusHandle"
+          @cancel="upkeepStatusPicker = false"
+        />
+      </van-popup>
 
       <!-- 保养状态 -->
       <van-field
@@ -131,6 +150,15 @@
 </template>
 
 <script>
+//          type: "week",
+//         guid: "", // 车辆guid
+//         time: "", // 保养时间-
+//         state: "", // 保养状态-
+//         repair_dept: "", // 保养部门 guid-
+//         company: "", // 公司 guid-
+//         project_dept: "", // 项目部 guid-
+//         driver_chief: "", // 司机长-
+//         driver: "", // 司机-
 import {
   getCompList, // 公司
   getDeptList, // 部门
